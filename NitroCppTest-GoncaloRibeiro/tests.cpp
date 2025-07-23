@@ -67,50 +67,21 @@ class RectangleTest
     };
 };
 
-// TEST_CASE("invalid path")
-// {    
-//     REQUIRE_THROWS_AS(Solution().run(""), std::invalid_argument);
-// }
+TEST_CASE("invalid path")
+{
+    std::string path = "";
+    REQUIRE_THROWS(Solution().run(path));
+}
 
-// TEST_CASE("unexistant json")
-// {    
-//     REQUIRE_THROWS_AS(Solution().run("prettysurethisdoesntexist.json"), std::invalid_argument);
-// }
-
-TEST_CASE("clustered")
+TEST_CASE("invalid json")
 {
     JSON json = {
         {"rects", {
-            { {"x", 10}, {"y", 1}, {"w", 1}, {"h", 1} },
-            { {"x", 10}, {"y", 2}, {"w", 2}, {"h", 2} },
-            { {"x", 10}, {"y", 3}, {"w", 3}, {"h", 3} },
-            { {"x", 10}, {"y", 4}, {"w", 4}, {"h", 4} },
-            { {"x", 10}, {"y", 5}, {"w", 5}, {"h", 5} },
-            { {"x", 10}, {"y", 6}, {"w", 6}, {"h", 6} },
-            { {"x", 10}, {"y", 7}, {"w", 7}, {"h", 7} },
-            { {"x", 10}, {"y", 8}, {"w", 8}, {"h", 8} },
-            { {"x", 10}, {"y", 9}, {"w", 9}, {"h", 9} },
-            { {"x", 10}, {"y", 10}, {"w", 10}, {"h", 10} }
+            { {"x", -1}, {"y", 1}, {"w", 1}, {"h", 1} }
         }}
     };
 
     Solution s;
 
-    REQUIRE_NOTHROW(SolutionTest::run(s,json));
+    REQUIRE_THROWS(SolutionTest::run(s,json));
 }
-
-// TEST_CASE("clustered")
-// {
-//     JSON json = {
-//         {"rects", {
-//             { {"x", 0}, {"y", 1}, {"w", 1}, {"h", 1} },
-//             { {"x", 0}, {"y", 2}, {"w", 2}, {"h", 2} },
-//             { {"x", 0}, {"y", 3}, {"w", 3}, {"h", 3} },
-//             { {"x", 0}, {"y", 4}, {"w", 4}, {"h", 4} }
-//         }}
-//     };
-
-//     Solution s;
-//     SolutionTest::set_rect_vector(s,RectangleVector{})
-//     REQUIRE_THROWS_AS(Solution().run("prettysurethisdoesntexist.json"), std::invalid_argument);
-// }
