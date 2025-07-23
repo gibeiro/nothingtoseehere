@@ -1,0 +1,11 @@
+For compiling the program I used:
+    g++ -std=c++17 -Wall -Wextra -Iinc -Ithird_party src/*.cpp main.cpp -o main
+
+For compilling the tests I used:
+    g++ -std=c++17 -Wall -Wextra -Iinc -Ithird_party -g src/*.cpp tests.cpp -o tests
+
+I used two 3rd party dependencies:
+* https://github.com/catchorg/Catch2/releases/tag/v2.13.10 for unit tests
+* https://github.com/nlohmann/json/releases/tag/v3.12.0 for json parsing
+
+
